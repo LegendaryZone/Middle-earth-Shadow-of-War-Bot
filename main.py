@@ -13,11 +13,11 @@ class API(object):
 	def __init__(self):
 		self.debug=True
 		self.s=requests.session()
-		self.s.headers.update({'User-Agent':'Mesh/1.2.42295-1.4.0 (iOS; 10.2)','Content-Type':'application/json'})
+		self.s.headers.update({'User-Agent':'Mesh/1.2.42443-1.4.1 (iOS; 10.2)','Content-Type':'application/json'})
 		self.s.verify=False
 		self.base_auth={'Authorization':'Basic bGV2aWF0aGFuOnZXOG11Yld6YXMybkZ2WkpwcUJ6TG1na0tUdjdOVk0yYXJQOE5XamU='}
 		self.s.headers.update(self.base_auth)
-		self.AssetsBranchId=10400
+		self.AssetsBranchId=10401
 		self.last_error=None
 		self.user={}
 		self.user_data={}
