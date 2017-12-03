@@ -24,6 +24,10 @@ class API(object):
 		self.add={}
 		self.hard_coded_add=255
 		self.AppUUID=self.genRandomDeviceID()
+		self.more=False
+
+	def setInjectMore(self):
+		self.more=True
 
 	def updateAuth(self,user_id,password):
 		self.base_auth={'Authorization':'Basic %s'%(base64.b64encode('%s:%s'%(user_id,password)))}
@@ -162,19 +166,19 @@ class API(object):
 		data['Debit'].append({'Type':2468616184,'Item':2584189485,'Amount':self.getNumAdd(2584189485)})#no energy use
 		data['Credit'].append({'Type':2468616184,'Item':2584189485,'Amount':self.getNumAdd(2584189485,True)})#no energy gain			
 		if items:
-			if 'Glyphs' in self.user_data:
+			if 'Glyphs' in self.user_data and self.more:
 				for i in self.user_data['Glyphs']['List']:
 					data['Credit'].append({'Type':1594795060,'Item':i['Item'],'Amount':self.hard_coded_add})
-			if 'Inscriptions' in self.user_data:
+			if 'Inscriptions' in self.user_data and self.more:
 				for i in self.user_data['Inscriptions']['List']:
 					data['Credit'].append({'Type':2576699940,'Item':i['Item'],'Amount':self.hard_coded_add})
-			if 'InscriptionFragments' in self.user_data:
+			if 'InscriptionFragments' in self.user_data and self.more:
 				for i in self.user_data['InscriptionFragments']['List']:
 					data['Credit'].append({'Type':1320415692,'Item':i['Item'],'Amount':self.hard_coded_add})
-			if 'RuneFragments' in self.user_data:
+			if 'RuneFragments' in self.user_data and self.more:
 				for i in self.user_data['RuneFragments']['List']:
 					data['Credit'].append({'Type':1169956836,'Item':i['Item'],'Amount':self.hard_coded_add})
-			if 'XPPotions' in self.user_data:
+			if 'XPPotions' in self.user_data and self.more:
 				for i in self.user_data['XPPotions']['List']:
 					data['Credit'].append({'Type':423610028,'Item':i['Item'],'Amount':self.hard_coded_add})
 			data['Credit'].append({'Type':2468616184,'Item':1217894615,'Amount':self.getNumAdd(1217894615)})#hero exp
