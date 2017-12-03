@@ -23,6 +23,7 @@ class API(object):
 		self.user_data={}
 		self.add={}
 		self.hard_coded_add=255
+		self.AppUUID=self.genRandomDeviceID()
 
 	def updateAuth(self,user_id,password):
 		self.base_auth={'Authorization':'Basic %s'%(base64.b64encode('%s:%s'%(user_id,password)))}
@@ -38,10 +39,6 @@ class API(object):
 		self.log('device_id:%s'%(id))
 		self.VID=id
 
-	def setUUID(self,id):
-		self.log('device_id:%s'%(id))
-		self.AppUUID=id
-		
 	def log(self,msg):
 		if self.debug:
 			print '[%s]: %s'%(time.strftime('%H:%M:%S'),msg)
@@ -280,9 +277,7 @@ class API(object):
 		return self.UserSave(tmp)
 		
 	def createNewAccount(self):
-		self.setUUID(self.genRandomDeviceID())
 		self.setVID(self.genRandomDeviceID())
-		self.setUUID(self.genRandomDeviceID())
 		self.UserAuth()
 		self.UserLoad()
 		self.Poll()

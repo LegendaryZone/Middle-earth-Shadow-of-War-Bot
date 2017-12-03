@@ -2,7 +2,6 @@ from main import API
 
 a=API()
 a.setVID('YOUR_ID_HERE')
-a.setUUID('YOUR_ID_HERE')
 a.UserAuth()
 a.UserLoad()
 a.Poll()
