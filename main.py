@@ -250,6 +250,9 @@ class API(object):
 		return self.callAPI('UserSave',data)
 
 	def injectStuff(self,Region,Quest,StageIndex,Difficulty,TimesSimmed,Team):
+		if not 'Transactions' in self.user_data:
+			print 'complete tutorial or check id'
+			exit(1)
 		tmp={}
 		DataTimestamp=int(time.time())
 		Timestamp=DataTimestamp+79
