@@ -42,6 +42,9 @@ class API(object):
 	def setVID(self,id):
 		self.log('device_id:%s'%(id))
 		self.VID=id
+		
+	def setADID(self,id):
+		self.ADID=id
 
 	def log(self,msg):
 		if self.debug:
@@ -72,7 +75,7 @@ class API(object):
 		data['CrashTimestamp']=0
 		data['IsTest']=0
 		data['VID']=self.VID
-		data['ADID']='00000000-0000-0000-0000-000000000000'
+		data['ADID']='00000000-0000-0000-0000-000000000000' if not hasattr(self,'ADID') else self.ADID
 		data['DeviceName']='iPad5,4'
 		data['DeviceModel']='iPad'
 		data['GpuVendor']="Apple Inc."

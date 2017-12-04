@@ -2,6 +2,7 @@ from main import API
 
 a=API()
 a.setVID('YOUR_ID_HERE')
+#a.setADID('YOUR_ID_HERE')#ONLY IF YOU HAVE ADID
 a.UserAuth()
 a.UserLoad()
 a.Poll()
