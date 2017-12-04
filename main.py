@@ -221,15 +221,15 @@ class API(object):
 		tmp={}
 		tmp['GlobalSecurity']=self.user_data['GlobalSecurity']
 		tmp['Security']=self.user_data['Security']
-		if 'Glyphs' in self.user_data:
+		if 'Glyphs' in self.user_data and self.more:
 			tmp['Glyphs']=self.addHardCoded(self.user_data['Glyphs'])
-		if 'Inscriptions' in self.user_data:
+		if 'Inscriptions' in self.user_data and self.more:
 			tmp['Inscriptions']=self.addHardCoded(self.user_data['Inscriptions'])
-		if 'InscriptionFragments' in self.user_data:
+		if 'InscriptionFragments' in self.user_data and self.more:
 			tmp['InscriptionFragments']=self.addHardCoded(self.user_data['InscriptionFragments'])
-		if 'RuneFragments' in self.user_data:
+		if 'RuneFragments' in self.user_data and self.more:
 			tmp['RuneFragments']=self.addHardCoded(self.user_data['RuneFragments'])
-		if 'XPPotions' in self.user_data:
+		if 'XPPotions' in self.user_data and self.more:
 			tmp['XPPotions']=self.addHardCoded(self.user_data['XPPotions'])
 		#Stats
 		tmp['Stats']=self.user_data['Stats']
